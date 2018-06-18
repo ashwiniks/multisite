@@ -12,6 +12,7 @@ var exphbs = require('express-handlebars');
 
 //Models
 var models = require("./models");
+//console.log(models.user);
 
 //Sync Database
 models.sequelize.sync().then(function() {
@@ -23,20 +24,31 @@ models.sequelize.sync().then(function() {
    console.log(err, "Something went wrong with the Database Update!")
 
 });
-function createVirtualHost(domainName, dirPath) {
-  console.log(dirPath);
-  return vhost(domainName, express.static( dirPath ));
-  }
 var app = express();
-var index = require('./routes/admin/index')(app);
-var users = require('./routes/users');
-// For Passport
-var env = require('dotenv').load();
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
 
 app.use(passport.initialize());
 
 app.use(passport.session()); // persistent login sessions
+//load passport strategies
+require('./config/passport/passport.js')(passport, models.user);
+
+function createVirtualHost(domainName, dirPath) {
+  console.log(dirPath);
+  return vhost(domainName, express.static( dirPath ));
+  }
+
+
+var index = require('./routes/admin/index')(app,passport);
+//var users = require('./routes/users');
+// For Passport
+var env = require('dotenv').load();
+
 
 //Create the virtual hosts
 var potatoHost = createVirtualHost("www.potato.com", "/views/potato.com");
@@ -54,11 +66,7 @@ app.set('view engine', 'hbs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+
 
 //app.use('/', index);
 //app.use('/users', users);
