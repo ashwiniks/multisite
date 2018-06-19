@@ -8,7 +8,7 @@ exports.signup = function(req, res) {
 
 exports.signin = function(req, res) {
     
-       res.render('admin/signin');
+       res.render('admin/signin',{layout: false});
     
 }
 

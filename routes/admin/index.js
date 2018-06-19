@@ -1,4 +1,5 @@
 var authController = require('../../controllers/authcontroller.js');
+var webController = require('../../controllers/webController.js');
 
 module.exports = function(app,passport) {
     function isLoggedIn(req, res, next) {
@@ -21,7 +22,15 @@ module.exports = function(app,passport) {
 ));
 app.get('/admin/dashboard',isLoggedIn,authController.dashboard);
 app.get('/admin/logout',authController.logout);
+app.post('/admin/signin', passport.authenticate('local-signin', {
+    successRedirect: '/admin/dashboard',
 
+    failureRedirect: '/admin/signin'
+}
+
+));
+
+app.get('/admin/createweb',isLoggedIn,webController.createWeb);
 
 
 }
