@@ -25,12 +25,16 @@ app.get('/admin/logout',authController.logout);
 app.post('/admin/signin', passport.authenticate('local-signin', {
     successRedirect: '/admin/dashboard',
 
-    failureRedirect: '/admin/signin'
+    failureRedirect: '/admin/signin',
+   
 }
 
 ));
 
 app.get('/admin/createweb',isLoggedIn,webController.createWeb);
+app.post('/admin/createweb',isLoggedIn,webController.createWeb);
+app.get('/admin/listweb',isLoggedIn,webController.listWeb);
+
 
 
 }

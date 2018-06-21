@@ -14,7 +14,7 @@ exports.signin = function(req, res) {
 
 exports.dashboard = function(req, res) {
     
-       res.render('admin/dashboard');
+       res.render('admin/dashboard',{email :req.user.email});
     
    }
 

@@ -26,7 +26,9 @@ Object.keys(db).forEach(function(modelName) {
 });*/
 
 var user = require("./user")(sequelize,Sequelize);
+var webmaster = require("./web")(sequelize,Sequelize);
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 db.user = user;
+db.webmaster = webmaster;
 module.exports = db;
