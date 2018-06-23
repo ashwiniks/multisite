@@ -58,9 +58,8 @@ var tomatoHost = createVirtualHost("www.tomato.com", application_root + "/views/
 //Use the virtual hosts
 app.use(potatoHost);
 app.use(tomatoHost);
-var server_port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
-
-var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
+var port = process.env.OPENSHIFT_NODEJS_PORT || process.env.PORT || 8080;
+var ip = process.env.OPENSHIFT_NODEJS_IP || process.env.IP || '0.0.0.0';
 //app.set('port',server_port);
 
 // view engine setup
@@ -91,9 +90,9 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-app.listen(server_port, server_ip_address, function () {
+app.listen(port,ip, function () {
 
-    console.log( "Listening on port " + server_ip_address + ", server_port " + server_port  );
+    console.log( "Listening on port " + ip + ", server_port " + port  );
 
 });
 module.exports = app;
