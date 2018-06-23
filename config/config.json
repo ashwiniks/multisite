@@ -2,13 +2,13 @@
   
      "development": {
   
-         "username": "userG4C",
+         "username": "root",
   
-         "password": "cDSCF3lqA2kTobRd",
+         "password": null,
   
-         "database": "sampledb",
+         "database": "multiwebsite",
   
-         "host": "mysql://mysql:3306/",
+         "host": "localhost",
   
          "dialect": "mysql"
   
@@ -16,13 +16,13 @@
   
      "test": {
   
-          "username": "userG4C",
+         "username": "",
   
-         "password": "cDSCF3lqA2kTobRd",
+         "password": null,
   
-         "database": "sampledb",
+         "database": "",
   
-         "host": "mysql://mysql:3306/",
+         "host": "",
   
          "dialect": "mysql"
   
@@ -39,6 +39,7 @@
          "host": "mysql://mysql:3306/",
   
          "dialect": "mysql"
+  
      }
   
  }
