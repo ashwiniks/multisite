@@ -53,11 +53,11 @@ var env = require('dotenv').load();
 
 //Create the virtual hosts
 var potatoHost = createVirtualHost("www.potato.com", "/views/potato.com");
-var tomatoHost = createVirtualHost("www.tomato.com", application_root + "/views/tomato");
+var naukriHost = createVirtualHost("www.naukrilink.com", application_root + "/views/test.com");
 
 //Use the virtual hosts
 app.use(potatoHost);
-app.use(tomatoHost);
+app.use(naukriHost);
 var port = process.env.OPENSHIFT_NODEJS_PORT || process.env.PORT || 8080;
 var ip = process.env.OPENSHIFT_NODEJS_IP || process.env.IP || '0.0.0.0';
 //app.set('port',server_port);
