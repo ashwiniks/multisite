@@ -39,10 +39,6 @@ models.sequelize.sync().then(function () {
 //load passport strategies
 require('./config/passport/passport.js')(passport, models.user);
 
-function createVirtualHost(domainName, dirPath) {
-  console.log(dirPath);
-  return vhost(domainName, express.static(dirPath));
-}
 
 
 var index = require('./routes/admin/index')(app, passport);
@@ -50,15 +46,7 @@ var index = require('./routes/admin/index')(app, passport);
 // For Passport
 var env = require('dotenv').load();
 
-
-//Create the virtual hosts
-var potatoHost = createVirtualHost("www.potato.com", "/views/potato.com");
-var tomatoHost = createVirtualHost("www.tomato.com", application_root + "/views/tomato");
-
-//Use the virtual hosts
-app.use(potatoHost);
-app.use(tomatoHost);
-var port = process.env.PORT || 80;
+var port = process.env.PORT || 8080;
 var ip = process.env.IP || '0.0.0.0';
 //app.set('port',server_port);
 
