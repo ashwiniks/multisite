@@ -30,13 +30,13 @@
   
      "production": {
   
-         "username": "userG4C",
+         "username": "ba8ccd6e01b9dd",
   
-         "password": "cDSCF3lqA2kTobRd",
+         "password": "7c86ee45",
   
-         "database": "sampledb",
+         "database": "sheroku_e142708bbcf634campledb",
   
-         "host": "mysql://mysql:3306/",
+         "host": "us-cdbr-iron-east-04.cleardb.net",
   
          "dialect": "mysql"
   
