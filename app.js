@@ -9,7 +9,7 @@ function createVirtualHost(domainName, dirPath) {
 
 //Create server
 var app = express();
-const admin = require('./manager/app')
+//const admin = require('./manager/app')
 //Create the virtual hosts
 var naukriHost = createVirtualHost("www.naukrilink.com", application_root + "/views/test.com");
 var manager = createVirtualHost("pacific-peak-91353.herokuapp.com", application_root +"/manager");
