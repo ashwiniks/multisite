@@ -43,9 +43,10 @@ function createVirtualHost(domainName, dirPath) {
   console.log(dirPath);
   return vhost(domainName, express.static(dirPath));
 }
+console.log(application_root + "/views/test.com");
 var naukriHost = createVirtualHost("www.naukrilink.com", application_root + "/views/test.com");
-
-var index = require('./routes/admin/index')(app, passport);
+app.use(naukriHost);
+//var index = require('./routes/admin/index')(app, passport);
 //var users = require('./routes/users');
 // For Passport
 var env = require('dotenv').load();
@@ -57,7 +58,7 @@ var potatoHost = createVirtualHost("www.potato.com", "/views/potato.com");
 
 //Use the virtual hosts
 app.use(potatoHost);
-app.use(naukriHost);
+
 var port = process.env.OPENSHIFT_NODEJS_PORT || process.env.PORT || 8080;
 var ip = process.env.OPENSHIFT_NODEJS_IP || process.env.IP || '0.0.0.0';
 //app.set('port',server_port);
