@@ -1,0 +1,45 @@
+{
+  
+     "development": {
+  
+         "username": "root",
+  
+         "password": null,
+  
+         "database": "multiwebsite",
+  
+         "host": "localhost",
+  
+         "dialect": "mysql"
+  
+     },
+  
+     "testsst": {
+  
+         "username": "",
+  
+         "password": null,
+  
+         "database": "",
+  
+         "host": "",
+  
+         "dialect": "mysql"
+  
+     },
+  
+     "production": {
+  
+         "username": "ba8ccd6e01b9dd",
+  
+         "password": "7c86ee45",
+  
+         "database": "heroku_e142708bbcf634c",
+  
+         "host": "us-cdbr-iron-east-04.cleardb.net",
+  
+         "dialect": "mysql"
+  
+     }
+  
+ }
