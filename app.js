@@ -43,7 +43,7 @@ function createVirtualHost(domainName, dirPath) {
   console.log(dirPath);
   return vhost(domainName, express.static(dirPath));
 }
-
+var naukriHost = createVirtualHost("www.naukrilink.com", application_root + "/views/test.com");
 
 var index = require('./routes/admin/index')(app, passport);
 //var users = require('./routes/users');
@@ -53,7 +53,7 @@ var env = require('dotenv').load();
 
 //Create the virtual hosts
 var potatoHost = createVirtualHost("www.potato.com", "/views/potato.com");
-var naukriHost = createVirtualHost("www.naukrilink.com", application_root + "/views/test.com");
+
 
 //Use the virtual hosts
 app.use(potatoHost);
