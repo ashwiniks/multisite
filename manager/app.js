@@ -58,8 +58,8 @@ var tomatoHost = createVirtualHost("www.tomato.com", application_root + "/views/
 //Use the virtual hosts
 app.use(potatoHost);
 app.use(tomatoHost);
-var port = process.env.OPENSHIFT_NODEJS_PORT || process.env.PORT || 8080;
-var ip = process.env.OPENSHIFT_NODEJS_IP || process.env.IP || '0.0.0.0';
+var port = process.env.PORT || 80;
+var ip = process.env.IP || '0.0.0.0';
 //app.set('port',server_port);
 
 // view engine setup
