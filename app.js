@@ -11,8 +11,8 @@ function createVirtualHost(domainName, dirPath) {
 var app = express();
 const admin = require('./manager/app')
 //Create the virtual hosts
-var naukriHost = createVirtualHost("www.example.com", application_root + "/public/websites/test.com");
-var manager = vhost("admin.example.com", admin);
+var naukriHost = createVirtualHost("www.naukrilink.com", application_root + "/public/websites/test.com");
+var manager = vhost("pacific-peak-91353.herokuapp.com", admin);
 //var tomatoHost = createVirtualHost("www.tomato.com", "tomato");
 console.log(application_root + "/views/test.com");
 //Use the virtual hosts
