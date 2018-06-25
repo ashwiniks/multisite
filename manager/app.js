@@ -46,8 +46,8 @@ var index = require('./routes/admin/index')(app, passport);
 // For Passport
 var env = require('dotenv').load();
 
-var port = process.env.PORT || 8080;
-var ip = process.env.IP || '0.0.0.0';
+//var port = process.env.PORT || 8080;
+//var ip = process.env.IP || '0.0.0.0';
 //app.set('port',server_port);
 
 // view engine setup
@@ -78,9 +78,9 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-app.listen(port,ip, function () {
+/*app.listen(port,ip, function () {
 
     console.log( "Listening on port " + ip + ", server_port " + port  );
 
-});
+});*/
 module.exports = app;
